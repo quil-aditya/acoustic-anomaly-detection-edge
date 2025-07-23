@@ -1,0 +1,317 @@
+{
+    "version": 1,
+    "samplesPerInference": 16000,
+    "axesCount": 1,
+    "classes": [
+        "abnormal",
+        "normal"
+    ],
+    "deployCounter": 2,
+    "folders": {
+        "input": "/home/input",
+        "output": "/home/output"
+    },
+    "frequency": 16000,
+    "impulse": {
+        "inputBlocks": [
+            {
+                "id": 1,
+                "type": "time-series",
+                "name": "Time series",
+                "title": "Time series data",
+                "padZeros": true,
+                "windowSizeMs": 1000,
+                "windowIncreaseMs": 500,
+                "frequencyHz": 16000,
+                "createdBy": "createImpulse",
+                "createdAt": "2025-05-03T10:20:10.519Z",
+                "labelingMethodMultiLabel": {
+                    "type": "end-of-window"
+                }
+            }
+        ],
+        "dspBlocks": [
+            {
+                "metadata": {
+                    "created": "2025-05-03T10:22:20.145Z",
+                    "dspConfig": {
+                        "options": {
+                            "num_cepstral": 13,
+                            "frame_length": 0.04,
+                            "frame_stride": 0.02,
+                            "num_filters": 40,
+                            "fft_length": 256,
+                            "win_size": 101,
+                            "low_frequency": 0,
+                            "high_frequency": null,
+                            "pre_cof": 0.98,
+                            "pre_shift": 1
+                        },
+                        "performance": {
+                            "latency": 138,
+                            "ram": 16088
+                        },
+                        "calculateFeatureImportance": false,
+                        "normalizeData": "none"
+                    },
+                    "labels": [
+                        "abnormal",
+                        "normal"
+                    ],
+                    "valuesPerAxis": 637,
+                    "windowCount": 7455,
+                    "featureCount": 637,
+                    "windowSizeMs": 1000,
+                    "windowIncreaseMs": 500,
+                    "frequency": 16000,
+                    "padZeros": true,
+                    "outputConfig": {
+                        "type": "spectrogram",
+                        "shape": {
+                            "width": 49,
+                            "height": 13
+                        }
+                    },
+                    "performance": {
+                        "latency": 138,
+                        "ram": 16088
+                    },
+                    "fftUsed": [
+                        40,
+                        256
+                    ],
+                    "includeEmptyLabels": false,
+                    "inputShape": [
+                        16000
+                    ],
+                    "includedSamplesAreInOrder": true,
+                    "resamplingAlgorithmVersion": 2
+                },
+                "id": 2,
+                "type": "mfcc",
+                "name": "MFCC",
+                "axes": [
+                    "audio"
+                ],
+                "title": "Audio (MFCC)",
+                "input": 1,
+                "implementationVersion": 4,
+                "namedAxes": [
+                    {
+                        "name": "Signal",
+                        "description": "The input signal to create an MFCC spectrogram from",
+                        "required": true,
+                        "selectedAxis": "audio"
+                    }
+                ],
+                "createdBy": "createImpulse",
+                "createdAt": "2025-05-03T10:20:10.519Z"
+            },
+            {
+                "metadata": {
+                    "created": "2025-05-03T10:24:11.948Z",
+                    "dspConfig": {
+                        "options": {
+                            "frame_length": 0.02,
+                            "frame_stride": 0.01,
+                            "num_filters": 40,
+                            "fft_length": 256,
+                            "low_frequency": 0,
+                            "high_frequency": null,
+                            "win_size": 101,
+                            "noise_floor_db": -52
+                        },
+                        "performance": {
+                            "latency": 99,
+                            "ram": 20264
+                        },
+                        "calculateFeatureImportance": false,
+                        "normalizeData": "none"
+                    },
+                    "labels": [
+                        "abnormal",
+                        "normal"
+                    ],
+                    "valuesPerAxis": 3960,
+                    "windowCount": 7455,
+                    "featureCount": 3960,
+                    "windowSizeMs": 1000,
+                    "windowIncreaseMs": 500,
+                    "frequency": 16000,
+                    "padZeros": true,
+                    "outputConfig": {
+                        "type": "spectrogram",
+                        "shape": {
+                            "width": 99,
+                            "height": 40
+                        }
+                    },
+                    "performance": {
+                        "latency": 99,
+                        "ram": 20264
+                    },
+                    "fftUsed": [
+                        256
+                    ],
+                    "includeEmptyLabels": false,
+                    "inputShape": [
+                        16000
+                    ],
+                    "includedSamplesAreInOrder": true,
+                    "resamplingAlgorithmVersion": 2
+                },
+                "id": 3,
+                "type": "mfe",
+                "name": "MFE",
+                "axes": [
+                    "audio"
+                ],
+                "title": "Audio (MFE)",
+                "input": 1,
+                "implementationVersion": 4,
+                "namedAxes": [
+                    {
+                        "name": "Signal",
+                        "description": "The input signal to create an MFE spectrogram from",
+                        "required": true,
+                        "selectedAxis": "audio"
+                    }
+                ],
+                "createdBy": "createImpulse",
+                "createdAt": "2025-05-03T10:20:10.519Z"
+            },
+            {
+                "metadata": {
+                    "created": "2025-05-03T10:25:47.335Z",
+                    "dspConfig": {
+                        "options": {
+                            "frame_length": 0.02,
+                            "frame_stride": 0.01,
+                            "fft_length": 128,
+                            "noise_floor_db": -52,
+                            "show_axes": true
+                        },
+                        "performance": {
+                            "latency": 45,
+                            "ram": 28448
+                        },
+                        "calculateFeatureImportance": false,
+                        "normalizeData": "none"
+                    },
+                    "labels": [
+                        "abnormal",
+                        "normal"
+                    ],
+                    "valuesPerAxis": 6435,
+                    "windowCount": 7455,
+                    "featureCount": 6435,
+                    "windowSizeMs": 1000,
+                    "windowIncreaseMs": 500,
+                    "frequency": 16000,
+                    "padZeros": true,
+                    "outputConfig": {
+                        "type": "spectrogram",
+                        "shape": {
+                            "width": 99,
+                            "height": 65
+                        }
+                    },
+                    "performance": {
+                        "latency": 45,
+                        "ram": 28448
+                    },
+                    "fftUsed": [
+                        128
+                    ],
+                    "includeEmptyLabels": false,
+                    "inputShape": [
+                        16000
+                    ],
+                    "includedSamplesAreInOrder": true,
+                    "resamplingAlgorithmVersion": 2
+                },
+                "id": 4,
+                "type": "spectrogram",
+                "name": "Spectrogram",
+                "axes": [
+                    "audio"
+                ],
+                "title": "Spectrogram",
+                "input": 1,
+                "implementationVersion": 4,
+                "namedAxes": [
+                    {
+                        "name": "Signal",
+                        "description": "The input signal to create a spectrogram from",
+                        "required": true,
+                        "selectedAxis": "audio"
+                    }
+                ],
+                "createdBy": "createImpulse",
+                "createdAt": "2025-05-03T10:20:10.519Z"
+            }
+        ],
+        "learnBlocks": [
+            {
+                "thresholds": {
+                    "minConfidenceRating": 0.6
+                },
+                "id": 5,
+                "type": "keras",
+                "name": "Classifier",
+                "dsp": [
+                    2,
+                    3,
+                    4
+                ],
+                "title": "Classification",
+                "createdBy": "createImpulse",
+                "createdAt": "2025-05-03T10:20:10.519Z"
+            }
+        ]
+    },
+    "project": {
+        "name": "manishkumar-project-1",
+        "id": 684893,
+        "owner": "manishkumar",
+        "apiKey": "ei_5b219528b8d55d89511ffbfcc344b1d9364fa09fb0e7f0463c2aea1f7a8c7d7a",
+        "studioHost": "studio.edgeimpulse.com"
+    },
+    "sensor": "microphone",
+    "tfliteModels": [
+        {
+            "arenaSize": 247052,
+            "inputFrameSize": 11032,
+            "inputTensor": "reshape_input",
+            "outputTensor": "y_pred/Softmax:0",
+            "details": {
+                "modelType": "float32",
+                "inputs": [
+                    {
+                        "dataType": "float32",
+                        "name": "serving_default_x:0",
+                        "shape": [
+                            1,
+                            11032
+                        ],
+                        "quantizationScale": null,
+                        "quantizationZeroPoint": null
+                    }
+                ],
+                "outputs": [
+                    {
+                        "dataType": "float32",
+                        "name": "StatefulPartitionedCall:0",
+                        "shape": [
+                            1,
+                            2
+                        ],
+                        "quantizationScale": null,
+                        "quantizationZeroPoint": null
+                    }
+                ]
+            },
+            "modelPath": "/home/input/trained.tflite"
+        }
+    ]
+}
